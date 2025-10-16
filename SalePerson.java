@@ -10,25 +10,25 @@ public class SalePerson implements Comparable<SalePerson> {
     }
 
     // Format: <lastName>, <firstName> : <totalSales>
+    @Override
     public String toString() {
         return lastName + ", " + firstName + " : " + totalSales;
     }
 
-    // Checks if first and last names match
+    // Equality based on first and last names
+    @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof SalePerson)) {
-            return false;
-        }
+        if (!(obj instanceof SalePerson)) return false;
         SalePerson other = (SalePerson) obj;
-        return this.firstName.equals(other.firstName) && this.lastName.equals(other.lastName);
+        return this.firstName.equals(other.firstName)
+            && this.lastName.equals(other.lastName);
     }
 
-    // Compare by totalSales descending, tie-break on lastName ascending
+    // Compare by totalSales (descending), tie-break by lastName (ascending)
+    @Override
     public int compareTo(SalePerson other) {
-        if (this.totalSales != other.totalSales) {
-            return other.totalSales - this.totalSales; // Descending
-        } else {
-            return this.lastName.compareTo(other.lastName); // Ascending
-        }
+        if (this.totalSales != other.totalSales)
+            return other.totalSales - this.totalSales; // descending
+        return this.lastName.compareTo(other.lastName); // ascending
     }
 }

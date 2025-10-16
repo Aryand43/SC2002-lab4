@@ -8,11 +8,12 @@ public class WeeklySales {
         salesPeople[3] = new SalePerson("Daniel", "Lim", 100);
         salesPeople[4] = new SalePerson("Amy", "Lee", 200);
 
-        Sorting.insertionSort(salesPeople); // sorts using compareTo()
+        // Sort using insertionSort which uses SalePerson.compareTo()
+        Sorting.insertionSort(salesPeople);
 
-        System.out.println("Sorted salespeople (by total sales descending, name ascending):\n");
-        for (SalePerson sp : salesPeople) {
-            System.out.println(sp); // uses toString()
+        System.out.println("Sorted salespeople (Descending by Total Sales, Ascending by Last Name):\n");
+        for (int i = 0; i < salesPeople.length; i++) {
+            System.out.printf("%2d. %s\n", i + 1, salesPeople[i]);
         }
     }
 }
